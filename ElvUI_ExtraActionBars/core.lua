@@ -2,7 +2,6 @@ local E, L, V, P, G, _ = unpack(ElvUI);
 local EAB = E:GetModule("ExtraActionBars");
 local AB = E:GetModule("ActionBars");
 local EP = LibStub("LibElvUIPlugin-1.0");
-local addon, ns = ...;
 
 function EAB:UpdateButtonSettings()
 	for i = 7, 10 do
@@ -39,7 +38,7 @@ function EAB:CreateBars()
 	for i = 7, 10 do
 		AB:CreateBar(i);
 	end
-	
+
 	for b, _ in pairs(AB["handledbuttons"]) do
 		AB:RegisterButton(b, true);
 	end
@@ -65,7 +64,7 @@ function EAB:PLAYER_ENTERING_WORLD()
 end
 
 function EAB:OnInitialize()
-	EP:RegisterPlugin(addon, EAB.InsertOptions);
+	EP:RegisterPlugin("ElvUI_ExtraActionBars", EAB.InsertOptions);
 
 	if(E.private.actionbar.enable ~= true) then return; end
 
