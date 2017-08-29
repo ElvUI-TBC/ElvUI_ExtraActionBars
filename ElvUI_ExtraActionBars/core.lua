@@ -68,5 +68,16 @@ function EAB:OnInitialize()
 
 	if(E.private.actionbar.enable ~= true) then return end
 
+	hooksecurefunc(AB, "PositionAndSizeBar", function(self, barName)
+	    if barName == "bar7" or barName == "bar8" or barName == "bar9" or barName == "bar10" then
+	        local bar = self["handledBars"][barName]
+	        if self.db[barName].enabled then
+	            E:EnableMover("ElvAB_"..bar.id)
+	        else
+	            E:DisableMover("ElvAB_"..bar.id)
+	        end
+	    end
+	end)
+
 	self:RegisterEvent("PLAYER_ENTERING_WORLD")
 end
