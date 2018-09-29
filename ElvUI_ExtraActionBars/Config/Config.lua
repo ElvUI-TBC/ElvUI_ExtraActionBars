@@ -189,7 +189,7 @@ function EAB:InsertOptions()
 					type = "range",
 					name = L["Button Spacing"],
 					desc = L["The spacing between buttons."],
-					min = -1, max = 10, step = 1,
+					min = -3, max = 10, step = 1,
 					disabled = function() return not E.db.actionbar["bar" .. i].enabled end
 				},
 				backdropSpacing = {
